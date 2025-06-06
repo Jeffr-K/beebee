@@ -1,0 +1,12 @@
+{
+  "venvPath": "/Users/jeffrey/Desktop/beebee/engine/v1/beebee-v1",
+  "venv": ".venv",
+  "typeCheckingMode": "basic",
+  "reportMissingImports": true,
+  "reportMissingTypeStubs": false,
+  "pythonVersion": "3.12",
+  "pythonPlatform": "Darwin",
+  "extraPaths": [
+    "/Users/jeffrey/Desktop/beebee/engine/v1/beebee-v1/.venv/lib/python3.12/site-packages"
+  ]
+}

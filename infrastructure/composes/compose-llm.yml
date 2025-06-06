@@ -1,0 +1,40 @@
+version: "3.8"
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama_c-server
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama_c
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    restart: unless-stopped
+    # CPU 최적화 설정
+    deploy:
+      resources:
+        limits:
+          memory: 8G # 메모리 제한 (필요에 따라 조정)
+        reservations:
+          memory: 2G # 최소 메모리
+
+  # 선택사항: Ollama Web UI
+  ollama-webui:
+    image: ghcr.io/ollama-webui/ollama-webui:main
+    container_name: ollama_c-webui
+    ports:
+      - "3000:8080"
+    environment:
+      - OLLAMA_API_BASE_URL=http://ollama_c:11434/api
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
+    driver: local
+
+networks:
+  default:
+    name: ollama_c-network
