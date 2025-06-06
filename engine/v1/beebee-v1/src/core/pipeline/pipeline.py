@@ -1,5 +1,6 @@
 from src.core.chains.embedder.embedder import Embedder
 from src.core.chains.ingestor.ingestor import Ingestor
+from src.core.chains.search.search import Search
 
 
 class Pipeline:
@@ -27,7 +28,12 @@ class Pipeline:
             print("Embedding storage failed")
             return False
 
+    # @classmethod
+    # async def search(cls, query: str, limit: int = 5):
+    #     pipeline = cls()
+    #     return await pipeline.embedder.search(query, limit)
+
     @classmethod
-    async def search(cls, query: str, limit: int = 5):
-        pipeline = cls()
-        return await pipeline.embedder.search(query, limit)
+    async def search(cls, query: str):
+        search = Search()
+        return await search.answer(query)

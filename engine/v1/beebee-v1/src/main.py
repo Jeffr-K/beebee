@@ -28,7 +28,7 @@ async def ingest_data():
 
 @app.post("/search")
 async def search(request: PromptRequest):
-    results = await Pipeline.search(request.query, request.limit)
+    results = await Pipeline.search(request.query)
     return {"results": results}
 
 if __name__ == "__main__":
