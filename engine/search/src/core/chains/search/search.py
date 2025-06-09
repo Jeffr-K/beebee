@@ -8,10 +8,6 @@ class Search:
     def __init__(self):
         self.embedder = Embedder()
 
-        # self.llm = ChatOllama(
-        #     model="qwen2.5:7b",
-        #     base_url="http://localhost:11434"
-        # )
         self.llm = ChatOllama(
             model="tinyllama:latest",
             base_url="http://localhost:11434"
