@@ -1,0 +1,9 @@
+.idea
+.mypy_cache
+
+# 폴더별 .idea
+
+agents/research/.idea
+agents/reporter/.idea
+agents/contract/.idea
+
